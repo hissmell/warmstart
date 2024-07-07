@@ -18,7 +18,7 @@ setup(
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
     description="For warm-start in vasp calculation",
-    url="https://github.com/yourusername/ccelpark",
+    url="https://github.com/hissmell/warmstart",
     classifiers=[
         "Programming Language :: Python :: 3",
     ],
