@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="warmstart",
     version="0.1.0",
-    packages=find_packages(include=['src', 'src.*']),
+    packages=find_packages(),
     install_requires=[
         "gdown==4.7.1",
         "torch==1.13.1",
@@ -12,7 +12,6 @@ setup(
         "e3fp==1.2.5",
         "bokeh==2.4.3"
         ],
-    packages=find_packages(),
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
     description="For warm-start in vasp calculation",
