@@ -1,24 +1,14 @@
 from setuptools import setup, find_packages
+with open('requirements.txt') as f:
+    required = f.read().splitlines()
 
 setup(
     name="warmstart",
     version="0.1.0",
     packages=find_packages(),
-    install_requires=[
-        "gdown==4.7.1",
-        "torch==1.13.1",
-        "scikit-learn==1.0.2",
-        "pymatgen==2022.0.17",
-        "ase==3.22.1",
-        "e3fp==1.2.5",
-        "bokeh==2.4.3"
-        ],
+    install_requirements=required,
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
     description="For warm-start in vasp calculation",
     url="https://github.com/hissmell/warmstart",
-    classifiers=[
-        "Programming Language :: Python :: 3",
-    ],
-    package_dir={'': '.'}
 )
