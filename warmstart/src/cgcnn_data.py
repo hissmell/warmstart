@@ -227,24 +227,10 @@ class PerSiteData(Dataset):
         self.gdf = GaussianDistance(dmin=dmin, dmax=self.radius, step=step)
 
         self.prop_to_predict = prop_to_predict # prop to predict is now an array of properties
-
-        if os.path.exists(dataset_cache):
-            print('Loading existing cached dataset...')
-            self.all_data = torch.load(dataset_cache)
-            print('Done loading dataset')
-        else:
-            print('Creating and caching dataset...')
-            random.seed(random_seed)
-            random.shuffle(samples)
-
-            self.all_data = []
-            for idx in tqdm(range(len(samples)), position=0, leave=True):
-                data_i = self.compute_item(*samples[idx])
-                self.all_data.append(data_i)
-            print('Done creating dataset, caching...')
-            torch.save(self.all_data, dataset_cache)
-            print('Done cachine dataset')
-
+        self.all_data = []
+        for idx in tqdm(range(len(samples)), position=0, leave=True):
+            data_i = self.compute_item(*samples[idx])
+            self.all_data.append(data_i)
 
     def __len__(self):
         return len(self.all_data)

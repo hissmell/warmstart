@@ -95,10 +95,6 @@ class MagmomWarmer:
         # get directory this file is in
         dir_path = os.path.dirname(os.path.realpath(__file__))
         atom_init_dir = os.path.join(dir_path,"src")
-        print(os.path.join(dir_path,"temp_cache"))
-        if os.path.isfile(os.path.join(dir_path,"temp_cache")):
-            os.remove(os.path.join(dir_path,"temp_cache"))
-
         dataset = PerSiteData(samples, "magmom", atom_init_dir,"temp_cache")
         collate_fn = collate_pool
         train_loader, val_loader, test_loader = get_train_val_test_loader(
