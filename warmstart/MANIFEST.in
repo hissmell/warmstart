@@ -1,0 +1,4 @@
+include warmstart/src/atom_init.json
+include warmstart/src/magmom_no_norm_model_best.pth.tar
+recursive-include warmstart/src/test_input *
+recursive-include warmstart/src/temp_cache *
