@@ -9,6 +9,7 @@ setup(
     install_requirements=required,
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
+    packages=find_packages(include=['warmstart', 'warmstart.*']),
     description="For warm-start in vasp calculation",
     url="https://github.com/hissmell/warmstart",
 )
