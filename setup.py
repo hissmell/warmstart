@@ -12,6 +12,7 @@ setup(
         "e3fp==1.2.5",
         "bokeh==2.4.3"
         ],
+    packages=find_packages(),
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
     description="For warm-start in vasp calculation",
