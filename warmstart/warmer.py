@@ -84,7 +84,6 @@ class MagmomWarmer:
                 "label": site.specie.symbol,
                 "properties": {"bandwidth" : 0.0,"magmom" : 0.0,"bandcenter" : 0.0}
             })
-        print(json.dumps(temp_json, indent=4, ensure_ascii=False))
         return {"0" : temp_json}
     
     def _predict(self,json_object,model_path):
