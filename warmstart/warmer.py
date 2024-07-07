@@ -1,9 +1,9 @@
 import ase, os, sys
 from ase import Atom, Atoms
 
-from src.cgcnn_data import PerSiteData
-from src.cgcnn_data import collate_pool, get_train_val_test_loader
-from src.cgcnn_model import PerSiteCGCNet#, BindingEnergyCGCNet 
+from .src.cgcnn_data import PerSiteData
+from .src.cgcnn_data import collate_pool, get_train_val_test_loader
+from .src.cgcnn_model import PerSiteCGCNet#, BindingEnergyCGCNet 
 
 from pymatgen.io.ase import AseAtomsAdaptor
 from pymatgen.core import Structure
