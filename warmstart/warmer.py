@@ -18,9 +18,11 @@ import numpy as np
 class MagmomWarmer:
     def __init__(self):
         self.model_init = False
+        self.device = None
 
-    def __call__(self,atoms : Atoms, mode : str = "ml",model_path = None):
+    def __call__(self,atoms : Atoms, mode : str = "ml",model_path = None,device="cpu"):
         if mode == "ml":
+            self.device = device
             if model_path == None:
                 current_dir = os.path.dirname(__file__)
                 model_path = os.path.join(current_dir, 'src', 'magmom_no_norm_model_best.pth.tar')
@@ -123,7 +125,7 @@ class MagmomWarmer:
                             h_fea_len=223,
                             n_h=2)
             self.model.load_state_dict(torch.load(model_path)['state_dict'])
-            self.model.cuda()
+            self.model.to(self.device)
             self.model.eval()
 
             self.model_init = True
@@ -133,13 +135,13 @@ class MagmomWarmer:
             # measure data loading time
 
             input_var = (
-                inputs[0].to("cuda"),
-                inputs[1].to("cuda"),
-                inputs[2].to("cuda"),
-                [crys_idx.to("cuda") for crys_idx in inputs[3]]
+                inputs[0].to(self.device),
+                inputs[1].to(self.device),
+                inputs[2].to(self.device),
+                [crys_idx.to(self.device) for crys_idx in inputs[3]]
             )
 
-            target_var = target.to("cuda")
+            target_var = target.to(self.device)
 
             # Compute output
             output, atom_fea = self.model(*input_var)

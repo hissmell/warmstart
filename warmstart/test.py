@@ -19,7 +19,7 @@ outcar_path = "test_input/1_OUTCAR"
 print(atoms.get_initial_magnetic_moments())
 
 magmomwarmer = MagmomWarmer()
-atoms_with_magmom = magmomwarmer(atoms,mode = "ml")
+atoms_with_magmom = magmomwarmer(atoms,mode = "ml",device="cpu")
 
 initial_guess = atoms_with_magmom.get_initial_magnetic_moments()
 ground_truth = read_magmom_from_outcar(outcar_path)
