@@ -6,6 +6,11 @@ setup(
     name="warmstart",
     version="0.1.0",
     packages=find_packages(),
+    include_package_data=True,
+    package_dir={
+        'warmstart': 'warmstart',
+        'warmstart.src': 'warmstart/src'
+    },
     install_requirements=required,
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
