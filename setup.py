@@ -5,7 +5,7 @@ with open('requirements.txt') as f:
 setup(
     name="warmstart",
     version="0.1.0",
-    packages=find_packages(include=['warmstart', 'warmstart.*']),
+    packages=find_packages(),
     install_requirements=required,
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
