@@ -11,6 +11,9 @@ setup(
         'warmstart': 'warmstart',
         'warmstart.src': 'warmstart/src'
     },
+    package_data={
+        'warmstart.src': ['atom_init.json', 'magmom_no_norm_model_best.pth.tar', 'test_input/*', 'temp_cache/*']
+    },
     install_requirements=required,
     author="Park won-gyu",
     author_email="snupark@snu.ac.kr",
